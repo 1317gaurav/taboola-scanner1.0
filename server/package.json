@@ -1,0 +1,44 @@
+{
+  "name": "taboola-scanner-tool",
+  "version": "1.0.0",
+  "description": "Taboola Scanner Tool using create-react-app with a Node Express Backend",
+  "author": {
+    "name": "Arun Nehra",
+    "github": "https://github.com/ArunNehra",
+    "url": "https://www.linkedin.com/in/arunnehra/"
+  },
+  "license": "MIT",
+  "scripts": {
+    "client": "cd .. && cd client && yarn start",
+    "server": "node server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "dev:server": "cd client && yarn build && cd .. && yarn start",
+    "start": "nodemon src/index.js",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4",
+    "socket.io": "^2.3.0",
+    "concurrently": "^5.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ArunNehra/taboola-scanner.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ArunNehra/taboola-scanner/issues"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "create-react-app"
+  ]
+}

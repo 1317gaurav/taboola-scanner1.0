@@ -1,0 +1,46 @@
+{
+  "name": "ui",
+  "version": "0.2.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.2",
+    "nprogress": "^0.2.0",
+    "papaparse": "^5.2.0",
+    "react-bootstrap": "^0.32.4",
+    "react-csv": "^2.0.3",
+    "react-data-table-component": "^6.11.2",
+    "react-helmet": "^6.1.0",
+    "react-loader-spinner": "^3.1.14",
+    "react-toastify": "^6.0.8",
+    "socket.io-client": "^2.3.0",
+    "styled-components": "^5.1.1",
+    "url-regex": "^5.0.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-scripts": "^3.1.2"
+  },
+  "scripts": {
+    "start": "PORT=3300 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://server:5120",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "sass": "^1.23.7"
+  }
+  
+}
