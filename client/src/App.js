@@ -76,22 +76,22 @@ class MainForm extends React.Component {
     e.preventDefault();
     if (this.getValidationState() === "success") {
       this.setState({ loading: true, export: false });
-      let data = JSON.stringify({ url: this.state.value });
-      //let data = this.state.value;
-      //socket.emit("sendUrl", data);
-      axios
-        .post("/url", data, {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-        .then((res) => {
-          console.log(res);
-          if (res.data.error && res.status === 200) {
-            this.errorAlert(res.data.error);
-          }
-          this.setState({ loading: false, value: "", data: res.data });
-        })
+      //let data = JSON.stringify({ url: this.state.value });
+      let data = this.state.value;
+      socket.emit("sendUrl", data);
+      //axios
+        //.post("/url", data, {
+          //headers: {
+           // "Content-Type": "application/json",
+        //  },
+        //})
+        //.then((res) => {
+         // console.log(res);
+          //if (res.data.error && res.status === 200) {
+           // this.errorAlert(res.data.error);
+          //}
+          //this.setState({ loading: false, value: "", data: res.data });
+        //})
         .catch(function (error) {
           window.location = "/error";
         });
