@@ -14,7 +14,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-const socket = socketIOClient("http://0.0.0.0:5120");
+const socket = socketIOClient("http://ti-dev001.taboolasyndication.com:5120");
 
 // import FormData from 'form-data';
 class MainForm extends React.Component {
