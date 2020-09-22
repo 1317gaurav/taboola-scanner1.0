@@ -17,7 +17,7 @@ services:
     build:
       context: ./client/
     env_file:
-      - /usr/app/client/.env
+      - ./client/.env
     command: npm start
     volumes:
       - ./client/:/usr/app
