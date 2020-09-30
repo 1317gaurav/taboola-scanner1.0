@@ -92,9 +92,9 @@ class MainForm extends React.Component {
           //}
           //this.setState({ loading: false, value: "", data: res.data });
         //})
-        .catch(function (error) {
-          window.location = "/error";
-        });
+        //.catch(function (error) {
+         // window.location = "/error";
+        //});
     } else {
       this.errorAlert("Please enter a valid URL");
       return;
