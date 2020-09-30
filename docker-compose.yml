@@ -4,8 +4,8 @@ services:
     build:
       context: ./server/
       dockerfile: Dockerfile
-    image: Scanner-serve
-    container_name: Scanner-serve
+    image: scanner-serve
+    container_name: scanner-serve
     restart: unless-stopped
     dns: 
       - 172.16.19.4
@@ -26,7 +26,7 @@ services:
     build:
       context: ./client/
       dockerfile: Dockerfile
-    image: Scanner-client
+    image: scanner-client
     container_name: Scanner-client
     restart: unless-stopped
     dns: 
