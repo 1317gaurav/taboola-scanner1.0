@@ -3,15 +3,19 @@ services:
   server:
     build:
       context: ./server/
-    command: /usr/app/node_modules/.bin/nodemon src/index.js
-    volumes:
-      - ./server/:/usr/app
-      - /usr/app/node_modules
-     dns: 
+       dockerfile: Dockerfile
+    image: Scanner-serve
+    container_name: Scanner-serve
+    restart: unless-stopped
+    dns: 
       - 172.16.19.4
       - 10.105.19.5
     dns_search:
-      - taboolasyndication.com  
+      - taboolasyndication.com
+    command: /usr/app/node_modules/.bin/nodemon src/index.js
+    volumes:
+      - ./server/:/usr/app
+      - /usr/app/node_modules 
     ports:
       - "5120:5120"
     # env_file: ./server/.env # TODO - uncomment this to auto-load your .env file!
@@ -21,6 +25,15 @@ services:
   client:
     build:
       context: ./client/
+        dockerfile: Dockerfile
+    image: Scanner-client
+    container_name: Scanner-client
+    restart: unless-stopped
+    dns: 
+      - 172.16.19.4
+      - 10.105.19.5
+    dns_search:
+      - taboolasyndication.com
     env_file:
       - ./client/.env
     command: npm start
@@ -29,11 +42,6 @@ services:
       - /usr/app/node_modules
     depends_on:
       - server
-     dns: 
-      - 172.16.19.4
-      - 10.105.19.5
-    dns_search:
-      - taboolasyndication.com  
     ports:
       - "3300:3300"
     stdin_open: true
