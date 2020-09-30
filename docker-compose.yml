@@ -3,10 +3,21 @@ services:
   server:
     build:
       context: ./server/
+      dockerfile: Dockerfile
+    image: Scanner-server
+    container_name: Scanner-server
+    restart: unless-stopped
     command: /usr/app/node_modules/.bin/nodemon src/index.js
     volumes:
       - ./server/:/usr/app
       - /usr/app/node_modules
+      
+    dns: 
+      - 172.16.19.4
+      - 10.105.19.5
+    dns_search:
+      - taboolasyndication.com
+      
     ports:
       - "5120:5120"
     # env_file: ./server/.env # TODO - uncomment this to auto-load your .env file!
@@ -16,6 +27,10 @@ services:
   client:
     build:
       context: ./client/
+      dockerfile: Dockerfile
+    image: Scanner-client
+    container_name: Scanner-client
+    restart: unless-stopped
     env_file:
       - ./client/.env
     command: npm start
