@@ -27,7 +27,7 @@ services:
       context: ./client/
       dockerfile: Dockerfile
     image: scanner-client
-    container_name: Scanner-client
+    container_name: scanner-client
     restart: unless-stopped
     dns: 
       - 172.16.19.4
